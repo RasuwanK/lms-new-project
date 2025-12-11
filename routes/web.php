@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\ModuleController;
 use Illuminate\Support\Facades\Route;
@@ -43,8 +44,18 @@ Route::post("/assignments/{assignmentId}/delete", [AssignmentController::class, 
 Route::post("/assignments/{assignmentId}/submit", [AssignmentController::class, 'submit'])->name("assignment.submit");
 Route::post("/assignments/{assignmentId}/reset", [AssignmentController::class, 'reset'])->name("assignment.reset");
 
-Route::get('/calendar', function () {
-    return Inertia::render('Calendar/Main');
+Route::get('/calendar', [EventController::class, 'index'])->name('events.index');
+
+// Wrap the calendar and event routes inside the 'auth' middleware group
+Route::middleware('auth')->group(function () {
+
+    // 1. The main calendar view route
+    Route::get('/calendar', [EventController::class, 'index'])->name('events.index');
+
+    // 2. The CRUD routes
+    Route::resource('events', EventController::class)->only([
+        'store', 'update', 'destroy'
+    ]);
 });
 
 Route::get('/account', function () {

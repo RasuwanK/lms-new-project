@@ -17,6 +17,11 @@
     --blue: #005063;
     --orange: #F7931E;
     --red: #880808;
+
+    --sx-color-primary: #000 !important;
+    --sx-color-on-primary: #fff !important;
+    --sx-color-primary-container: #00000072 !important;
+    --sx-color-on-primary-container: #fff !important;
 }
 
 * {
@@ -39,7 +44,7 @@ h1 {
 
 p {
     font-size: 1.1rem;
-}   
+}
 
 @font-face {
     font-family: 'Pangolin';
@@ -49,4 +54,55 @@ p {
 @font-face {
     font-family: 'Work Sans';
     src: url('/fonts/WorkSans-VariableFont_wght.ttf');
+}
+
+.sx-react-calendar-wrapper {
+    width: 1100px;
+    max-width: 100%;
+    height: 625px;
+    max-height: 100%;
+    margin-top: 0px;
+}
+.sx__time-grid-event-time{
+
+    padding-top: 10px;
+}
+.sx__time-grid-event-title{
+    font-size: 15px !important;
+
+}
+
+.sx__date-picker-popup {
+    /* Shrinks the entire component uniformly */
+    transform: scale(0.9);
+
+    /* Ensures scaling happens from the corner where it attaches to the input field */
+    transform-origin: top left;
+
+    /* Adds a slight margin adjustment to account for the shrinking */
+    margin-top: -5px;
+    padding: 0;
+}
+
+
+
+/* 2. Reduce internal spacing and font size */
+.sx__date-picker__day-names span,
+.sx__date-picker__day,
+.sx__date-picker__month-view-header__month-year {
+    /* Target font size for smaller text */
+    font-size: 0.85rem !important;
+
+    /* Reduce padding/margin to bring the elements closer together */
+    padding: 3px 5px !important;
+}
+
+/* 3. Reduce padding around the entire month view */
+.sx__date-picker__month-view {
+    padding: 10px !important;
+}
+
+/* 4. Tweak the header buttons for consistency */
+.sx__date-picker__month-view-header button {
+    padding: 0 0px;
 }

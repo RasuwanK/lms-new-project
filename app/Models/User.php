@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Relay\KeyType;
 
 class User extends Authenticatable
 {
-    use Notifiable;
-
+    use Notifiable, HasUuids;
+    protected $keyType = 'string';
+    public $incrementing = false;
     protected $table = 'users'; // or your custom table
 
     protected $fillable = [
@@ -49,4 +52,8 @@ class User extends Authenticatable
         return $this->hasOne(Faculty::class);
     }
 
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }

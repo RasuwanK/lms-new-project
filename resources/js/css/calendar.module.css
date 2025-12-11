@@ -1,0 +1,173 @@
+
+/* resources/js/css/calendar.module.css */
+
+/* --- 1. Main Container and Layout --- */
+.schedule-x-event {
+    padding: 4px 6px !important;
+    font-size: 12px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    color: black;
+    line-height: 1.2;
+}
+.container {
+    /* Centers the main content area (if the margin-left: 25% is for a fixed sidebar) */
+    /* If you don't have a fixed sidebar, use max-width and margin: 0 auto; */
+    margin-left: 25%;
+    padding: 20px;
+    background-color: #f7f7f7; /* Light background for the content area */
+    min-height: 100vh; /* Ensure it covers the whole screen height */
+}
+
+/* --- 2. Calendar Topic Header (H1) --- */
+
+.header {
+    font-size: 2.0rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+/* --- 3. Add Event Button (Primary Action) --- */
+
+.addButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    background: #1e293b;         /* slate-800 / dark grey */
+    color: #f8fafc;              /* almost white text */
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: background .2s ease, transform .08s ease, box-shadow .2s ease;
+    font-family: 'Work Sans', sans-serif;
+}
+
+
+.addButton:hover {
+    background: #334155;         /* slate-700 */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* title left, button right */
+    gap: 1rem;
+    margin-bottom: 0rem;
+}
+/* --- 4. Calendar Wrapper --- */
+
+
+.calendarWrapper {
+    /* Optional: Give the calendar a distinct white box appearance */
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 5. MODAL STYLES --- */
+
+/* FULL SCREEN OVERLAY */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;        /* IMPORTANT */
+}
+
+/* MODAL BOX */
+.modalContent {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    z-index: 10000;        /* IMPORTANT */
+}
+
+
+
+.modalLabel {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.modalInput {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+}
+
+.modalButtonGroup {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 8px;
+    margin-top: 15px;
+}
+
+/* Modal Button Base Style */
+.modalBtn {
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.deleteBtn {
+    background-color: #dc3545;
+    color: white;
+}
+.deleteBtn:hover {
+    background-color: #c82333;
+}
+
+.secondaryBtn {
+    background-color: #e2e8f0;
+    color: #334155;
+}
+.secondaryBtn:hover {
+    background-color: #cbd5e1;
+}
+
+.primaryBtn {
+    background-color: #000000; /* Blue */
+    color: white;
+}
+
+.primaryBtn:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+/* --- Animation --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
